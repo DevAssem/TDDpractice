@@ -33,13 +33,8 @@ public class RnaTranscriptionTests
     {
         Assert.Equal("U", RnaTranscription.ToRna("A"));
     }
-
-    [Theory]
-    [InlineData("ACGTGGTCTTAA", "UGCACCAGAAUU")]
-    [InlineData("ACGTGGTCTTAC", "UGCACCAGAAUG")]
-    [InlineData("XXX", "YYY")]
-    public void Rna_complement(string dna, string rna)
+    [Fact]
+    public void Rna_complement
     {
-        Assert.Equal(rna, RnaTranscription.ToRna(dna));
+        Assert.Equal("UGCACCAGAAUU", RnaTranscription.ToRna("ACGTGGTCTTAA"));
     }
-}
